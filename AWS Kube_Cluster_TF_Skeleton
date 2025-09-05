@@ -36,7 +36,7 @@ aws eks update-kubeconfig --name my-cluster --region us-east-1
 kubectl get nodes
 
 
--> IAM roles for Clusters (IRSA) : https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html?utm_source=chatgpt.com
+-> IAM roles for Clusters (IRSA) : https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html
 
 
 -> Pod security checklist:
