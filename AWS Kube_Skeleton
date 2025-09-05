@@ -1,0 +1,24 @@
+We will need:
+
+1) VPC
+2) EKS Control Plane
+3) Worker capacity management
+4) Terraform state file in S3
+
+
+Tools: 
+AWS Services: IAM, VPC, EKS, EC2, ENI, S3, KMS keys
+Installations: Terraform, AWS Cli, kubectl, eksctl
+
+
+Terraform directory layout: 
+    --Environment
+      --Non_Prod
+        -main.tf
+        -variables.tf
+        -terraform.tfvars
+        -backend.tf
+
+
+
+
