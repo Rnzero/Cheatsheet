@@ -9,3 +9,43 @@ With Cluster Configured, and kubectl configured:
 
 ** Create a deployment set: 
     example-deployment.yaml
+
+** Apply the deployment: 
+      $ kubectl apply -f example-deployment.yaml
+
+** Check status: 
+      $ kubectl get deployments -n dev
+      $ kubectl describe deployment example-deployment -n dev
+
+
+
+***Expose ports:  
+    >>> internal: use ClusterIP
+      $ kubectl expose deployment example-deployment \
+          --type=ClusterIP --port=80 --target-port=80 -n dev
+
+    >>> External: Use Loadbalancer
+      $ kubectl expose deployment example-deployment \
+          --type=LoadBalancer --port=80 --target-port=80 -n dev
+
+*** Scaling Applications:    
+    >>> Manual:
+        $ kubectl scale deployment example-deployment --replicas=5 -n dev
+    >>> Autoscale:
+        $ kubectl autoscale deployment example-deployment \
+                  --cpu-percent=70 --min=2 --max=10 -n dev
+
+*** Updating Deployments
+    > Change Image version in Yaml or CLI
+        $ kubectl set image deployment/example-deployment <app name>=<image name>:1.26 -n dev
+
+
+*** Rollback latest deployment
+        $ kubectl rollout undo deployment/example-deployment -n dev
+
+
+
+
+
+
+
