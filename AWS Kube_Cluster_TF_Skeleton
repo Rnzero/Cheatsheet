@@ -20,6 +20,7 @@ Installations: Terraform, AWS Cli, kubectl, eksctl
         -backend.tf
 
 -> Create State file on S3 -> State locking
+setup versioning on S3
 
 
 -> Create VPC and EKS modules on main terraform file: 
@@ -48,5 +49,19 @@ Regularly scan Terraform with tflint, tfsec, checkov and enforce terraform fmt/v
 
 -> Use desired pods to maintain pods, or leverage HPA for autoscaling
 
+
+
+
+** Think about Automation in a CICD pipeline. Setup manual accepts for TF file changes.
+
+** Think of deployment stategies to maintain uptime.
+
+** Setup disaster recovery plans to improve resilience. 
+
+** Cost optimization techniques: Pod sizes, Spot instances for sudden volumes, etc.
+
+** Monitoring and Observability: Make use of probes to check the health of the pods.
+
+**
 
 
