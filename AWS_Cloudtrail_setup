@@ -1,1 +1,9 @@
 
+> Setup Organization trail that writes to a central S3 bucket (or central CloudWatch/Log account) for easier queries/forensics.
+> Decide retention, encryption (KMS), and lifecycle (S3 lifecycle) for CloudTrail logs.
+> Decide what you must collect: Management events (all AWS API calls), Data events (S3 object reads/writes), EKS control plane logs, pod logs, VPC Flow Logs.
+
+
+1) Create S3 for log retention: 
+
+
