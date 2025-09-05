@@ -6,18 +6,21 @@ We will need:
 4) Terraform state file in S3
 
 
-Tools: 
+-> Tools: 
 AWS Services: IAM, VPC, EKS, EC2, ENI, S3, KMS keys
 Installations: Terraform, AWS Cli, kubectl, eksctl
 
 
-Terraform directory layout: 
+-> Terraform directory layout: 
     --Environment
       --Non_Prod
         -main.tf
         -variables.tf
         -terraform.tfvars
         -backend.tf
+
+-> Create State file on S3 -> State locking
+
 
 
 
