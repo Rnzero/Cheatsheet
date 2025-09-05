@@ -22,6 +22,7 @@ Installations: Terraform, AWS Cli, kubectl, eksctl
 -> Create State file on S3 -> State locking
 
 
+-> Create VPC and EKS modules on main terraform file: 
 
-
+-> 
 
