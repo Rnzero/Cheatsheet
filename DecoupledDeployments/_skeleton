@@ -20,18 +20,18 @@ With Cluster Configured, and kubectl configured:
 
 
 ***Expose ports:  
-    >>> internal: use ClusterIP
+    >>> internal: use ClusterIP or Service.yaml
       $ kubectl expose deployment example-deployment \
           --type=ClusterIP --port=80 --target-port=80 -n dev
 
-    >>> External: Use Loadbalancer
+    >>> External: Use Loadbalancer or Ingress.yaml
       $ kubectl expose deployment example-deployment \
           --type=LoadBalancer --port=80 --target-port=80 -n dev
 
 *** Scaling Applications:    
     >>> Manual:
         $ kubectl scale deployment example-deployment --replicas=5 -n dev
-    >>> Autoscale:
+    >>> Autoscale: CLI or hpa.yaml
         $ kubectl autoscale deployment example-deployment \
                   --cpu-percent=70 --min=2 --max=10 -n dev
 
