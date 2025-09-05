@@ -46,4 +46,27 @@ $aws iam add-user-to-group --user-name rohan --group-name developers
 
 
 
+**** Enforce MFA and rotate credentials:
+          JSON:
+          {
+            "Version":"2012-10-17",
+            "Statement":[
+              {
+                "Effect":"Deny",
+                "Action":"*",
+                "Resource":"*",
+                "Condition": {
+                  "Bool": { "aws:MultiFactorAuthPresent": "false" }
+                }
+              }
+            ]
+          }
+guide: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html
+
+
+
+
+
+
+
 
