@@ -5,5 +5,14 @@
 
 
 1) Create S3 for log retention: 
+2) Create Cloud trail and point to the S3
+
+
+
+
+******  Quick Setup:
+$ aws cloudtrail create-trail --name org-trail --s3-bucket-name my-company-cloudtrail-logs-12345 --is-multi-region-trail
+$ aws cloudtrail start-logging --name org-trail
+
 
 
