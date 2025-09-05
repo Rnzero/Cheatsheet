@@ -1,4 +1,4 @@
-We will need:
+We need:
 
 1) VPC
 2) EKS Control Plane
@@ -24,5 +24,16 @@ Installations: Terraform, AWS Cli, kubectl, eksctl
 
 -> Create VPC and EKS modules on main terraform file: 
 
--> 
+
+-> provisioning the cluster:
+terraform init
+terraform plan -out tfplan -var-file="terraform.tfvars"
+terraform apply tfplan
+
+-> configure kubectl:
+aws eks update-kubeconfig --name my-cluster --region us-east-1
+kubectl get nodes
+
+
+-> IAM roles for Clusters (IRSA) : https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html?utm_source=chatgpt.com
 
