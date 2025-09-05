@@ -11,7 +11,7 @@ AWS Services: IAM, VPC, EKS, EC2, ENI, S3, KMS keys
 Installations: Terraform, AWS Cli, kubectl, eksctl
 
 
--> Terraform directory layout: 
+-> Terraform directory layout: Refer to https://registry.terraform.io/browse/modules for all modules
     --Environment
       --Non_Prod
         -main.tf
