@@ -1,1 +1,49 @@
+** Design IAM model (who/what needs access).
+** Implement guardrails (Identity Center, MFA, least-privilege, permission boundaries).
+** Create reusable managed policies (JSON), validate them.
+** Create roles (permissions policy + trust policy) for services / cross-account / humans.
+** Create users & groups and attach policies (prefer groups).
+** Provide temporary access (assume-role, STS) rather than long-lived keys where possible.
+** Monitor & audit (Access Analyzer, CloudTrail, credential reports).
+
+
+***** Create Policy::  
+
+Example JSON: policies/s3-readonly.json
+          {
+            "Version": "",
+            "Statement": [
+              {
+                "Sid": "AllowListBucket",
+                "Effect": "Allow",
+                "Action": ["s3:ListBucket"],
+                "Resource": ["arn:aws:s3:::my-app-bucket"]
+              },
+              {
+                "Sid": "AllowGetObjects",
+                "Effect": "Allow",
+                "Action": ["s3:GetObject"],
+                "Resource": ["arn:aws:s3:::my-app-bucket/*"]
+              }
+            ]
+          }
+
+
+$ aws iam create-policy \
+   --policy-name S3ReadOnly \
+   --policy-document file://policies/s3-readonly.json
+
+
+
+***** Create User groups: 
+
+$aws iam create-group --group-name developers
+$aws iam attach-group-policy --group-name developers \
+  --policy-arn arn:aws:iam::123456789999:policy/S3ReadOnly
+
+//Add users to usergroup: 
+$aws iam add-user-to-group --user-name rohan --group-name developers
+
+
+
 
