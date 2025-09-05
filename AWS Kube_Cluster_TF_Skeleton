@@ -46,5 +46,7 @@ Use network policies, security groups for pods, and private subnets for nodes.
 Use kube2iam/kiam alternatives are deprecated; prefer IRSA.
 Regularly scan Terraform with tflint, tfsec, checkov and enforce terraform fmt/validate in CI.
 
+-> Use desired pods to maintain pods, or leverage HPA for autoscaling
+
 
 
