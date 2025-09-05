@@ -1,0 +1,11 @@
+With Cluster Configured, and kubectl configured: 
+
+  $ aws eks update-kubeconfig --name my-cluster --region us-east-1
+
+
+** Organize environments or apps or teams into namespaces
+    $ kubectl create namespace dev
+    $ kubectl create namespace prod
+
+** Create a deployment set: 
+    example-deployment.yaml
