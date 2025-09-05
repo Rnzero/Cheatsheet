@@ -1,0 +1,15 @@
+Multiple AZs — create subnets in 2+ AZs for high availability. 
+
+NAT Gateway HA vs cost — 1 NAT per AZ gives better resilience; NAT gateways incur hourly & data charges. Balance cost vs availability. 
+
+VPC Endpoints — use gateway endpoints for S3 and DynamoDB where possible to avoid NAT egress costs; use interface endpoints for other services. 
+
+Tag everything for ownership, billing and automation.
+
+VPC Flow Logs for network diagnostics / security logging. The module & CFN can enable flow logs. 
+
+State and CI — store Terraform state remotely (S3 + DynamoDB) and pipeline changes through CI with approval steps. 
+
+Test changes in lower envs — especially CIDR or route changes; some changes are disruptive.
+
+Security — use Security Groups for instance-level controls; consider network ACLs only for coarse-grained control. See AWS VPC security best practices. 
