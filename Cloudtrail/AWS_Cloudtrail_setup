@@ -5,14 +5,31 @@
 
 
 1) Create S3 for log retention: 
-2) Create Cloud trail and point to the S3
+
+2) Create multiregion cloudtrail and send to bucket:
+    $ aws cloudtrail create-trail \
+        --name org-trail \
+        --s3-bucket-name my-cloudtrail-logs-<unique-id> \
+        --is-multi-region-trail
+
+3) Start the log collection 
+    $ aws cloudtrail start-logging --name org-trail
 
 
 
+===========================
 
-******  Quick Setup:
-$ aws cloudtrail create-trail --name org-trail --s3-bucket-name my-company-cloudtrail-logs-12345 --is-multi-region-trail
-$ aws cloudtrail start-logging --name org-trail
+*********  Integrate with cloudwatch logs for real time metric collection:
+   
+  1) Create a log group:       
+        $ aws logs create-log-group --log-group-name /aws/cloudtrail/org-trail
+
+  2) Create an IAM role + policy allowing logs:PutLogEvents for that log group. (Gives cloudtrail permission to publish to cloudwatch)
+        $aws cloudtrail update-trail \
+              --name org-trail \
+              --cloud-watch-logs-log-group-arn arn:aws:logs:us-east-1:<account-id>:log-group:/aws/cloudtrail/org-trail:* \
+              --cloud-watch-logs-role-arn arn:aws:iam::<account-id>:role/CloudTrail_CloudWatchRole
+
 
 
 
