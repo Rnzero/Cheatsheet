@@ -40,10 +40,7 @@ kubectl get nodes
 
 -> Pod security checklist:
 Use IRSA for pod permissions (no node IAM secrets). 
-AWS Documentation
 Lock Terraform state and enable S3 versioning. 
-HashiCorp Developer
-AWS Documentation
 Enable EKS control plane logging and audit logs.
 Use network policies, security groups for pods, and private subnets for nodes.
 Use kube2iam/kiam alternatives are deprecated; prefer IRSA.
