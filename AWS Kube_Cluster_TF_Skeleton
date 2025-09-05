@@ -37,3 +37,17 @@ kubectl get nodes
 
 -> IAM roles for Clusters (IRSA) : https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html?utm_source=chatgpt.com
 
+
+-> Pod security checklist:
+Use IRSA for pod permissions (no node IAM secrets). 
+AWS Documentation
+Lock Terraform state and enable S3 versioning. 
+HashiCorp Developer
+AWS Documentation
+Enable EKS control plane logging and audit logs.
+Use network policies, security groups for pods, and private subnets for nodes.
+Use kube2iam/kiam alternatives are deprecated; prefer IRSA.
+Regularly scan Terraform with tflint, tfsec, checkov and enforce terraform fmt/validate in CI.
+
+
+
