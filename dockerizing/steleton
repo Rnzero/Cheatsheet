@@ -1,0 +1,7 @@
+
+
+Dockerize application → build image
+Push image to registry (Docker Hub/ECR/GCR)
+Deploy container using Kubernetes (manifest or Helm)
+
+
