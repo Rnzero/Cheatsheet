@@ -18,6 +18,12 @@
     $ aws ecr get-login-password | docker login
 
 
+**** Manage deployments using kubernetes with deployment/service.yaml
+
+    $ kubectl apply -f deployment.yaml
+    $ kubectl apply -f service.yaml
+
+
 
 
 
