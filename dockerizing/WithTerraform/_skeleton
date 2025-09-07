@@ -1,4 +1,8 @@
 With a cluster setup and kubectl installed,
 
 
-**** Add Kubernetes provider in providers.tf    
+**** Add Kubernetes provider in providers.tf, container deployment in deployments.tf, services in service.tf, Values.tf for passing variables to tf files.
+
+**** initialize and apply
+    $ terraform init
+    $ terraform apply -auto-approve
